@@ -1,0 +1,27 @@
+:root {
+background-color:black;
+color:white;
+text-align: center;
+};
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+button {
+    width:200px;
+    height:100px;
+    background:purple;
+    border-radius: 50px;
+    margin-bottom: 50px;
+    font-size: 30px;
+    color:white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: rgb(196, 94, 255);
+}
