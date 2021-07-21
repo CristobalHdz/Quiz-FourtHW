@@ -40,6 +40,10 @@ button:hover {
     display: none;
 }
 
+#homeOptions {
+    display: none;
+}
+
 .menu {
     display: flex;
     height: 200px;
@@ -77,4 +81,8 @@ button:hover {
 
 .progress {
     flex:1
+}
+
+#wrongText{
+    color:transparent
 }

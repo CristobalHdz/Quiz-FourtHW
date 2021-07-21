@@ -4,6 +4,9 @@
 <!-- https://www.youtube.com/watch?v=f4fB9Xg2JEY&ab_channel=BrianDesign -->
 <!-- https://www.youtube.com/watch?v=49pYIMygIcU -->
 
+<!-- HISCORE HELP: https://stackoverflow.com/questions/31505826/javascript-personal-highscores -->
+<!--  QUESTIONS: https://letsfindcourse.com/technical-questions/javascript-mcq/javascript-fundamentals-mcq -->
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,25 +28,23 @@
                 <button id="buttonHiscores" type="button">Hiscores</button>
             </div>
             <div>
-                <button type="button">Something Cool</button>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><button type="button">Something Cool</button></a>
             </div>
         </div>
 
         <div id="quizContainer">
             <div class="menu">
-                <div id="progress"></div>
                 <div class="question">
-                    <div id=questionNumber>
-                        <h1>Question #</h1>
+                    <div>
+                        <h1>Question <span id=questionNumber></span></h1>
                     </div>
-                    <div id="questionText">
-                        <h2>lala</h2>
-                    </div>
+                    <div id="questionText"></div>
+                    <h1 id="wrongText">Placeholder for change</h1>
                 </div>
                 <div class="scoreBoard">
                     <h1>Time left: </h1>
                     <div>
-                        <h1 id=counter></h1>
+                        <h1 id=counter>60</h1>
                     </div>
                     <h1>Score: </h1>
                     <div id="score">
@@ -59,6 +60,11 @@
                 <div class="choice" id="D" onClick="checkAnswer('D')"></div>
             </div>
         </div>
+        <div class="resultsContainer">
+            
+            </div>
+        </div>
+
     </div>
     <script src="Assets/JS/script.js"></script>
 </body>
