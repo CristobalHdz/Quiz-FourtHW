@@ -2,33 +2,64 @@
 <html lang="en">
 
 <!-- https://www.youtube.com/watch?v=f4fB9Xg2JEY&ab_channel=BrianDesign -->
+<!-- https://www.youtube.com/watch?v=49pYIMygIcU -->
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Quiz Home Page</title>
-    <link rel="stylesheet" href="Assets/CSS/style.css" />
+    <title>Quiz Homework</title>
+    <link rel="stylesheet" href="./Assets/CSS/style.css" />
 
 </head>
 
 <body>
-    <div class="container">
-        <div id="home" class="flex-column flex-center">
+    <div id=container>
+        <div id="homeOptions">
             <h1>Are you ready?</h1>
+            <p>You have 60 seconds to answer 10 questions. Every incorrect answer substracts 5 secodns from the clock
+            </p>
             <div>
-                <a href="/game.html" class="btn"><button type="button">Play</button> </a>
+                <button id="buttonPlay" type="button">Play</button>
             </div>
             <div>
-                <a href="/Hiscores.html" class="btn"><button type="button">Hiscores</button> </a>
+                <button id="buttonHiscores" type="button">Hiscores</button>
             </div>
             <div>
-                <a href="/game.html" class="btn"><button type="button">Something Cool</button> </a>
+                <button type="button">Something Cool</button>
+            </div>
+        </div>
+
+        <div id="quizContainer">
+            <div class="menu">
+                <div id="progress"></div>
+                <div class="question">
+                    <div id=questionNumber>
+                        <h1>Question #</h1>
+                    </div>
+                    <div id="questionText">
+                        <h2>lala</h2>
+                    </div>
+                </div>
+                <div class="scoreBoard">
+                    <h1>Time left: </h1>
+                    <div>
+                        <h1 id=counter></h1>
+                    </div>
+                    <h1>Score: </h1>
+                    <div id="score">
+                        <h1> 0 </h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quizBtns">
+                <div class="choice" id="A" onClick="checkAnswer('A')"></div>
+                <div class="choice" id="B" onClick="checkAnswer('B')"></div>
+                <div class="choice" id="C" onClick="checkAnswer('C')"></div>
+                <div class="choice" id="D" onClick="checkAnswer('D')"></div>
             </div>
         </div>
     </div>
-
-
     <script src="Assets/JS/script.js"></script>
 </body>
 

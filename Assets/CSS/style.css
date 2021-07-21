@@ -1,3 +1,5 @@
+/* INITIAL CSS */
+
 :root {
 background-color:black;
 color:white;
@@ -24,4 +26,55 @@ button {
 
 button:hover {
     background-color: rgb(196, 94, 255);
+}
+
+#homeOptions {
+    display: block;
+}
+
+
+
+/* GAME CSS */
+
+#quizContainer {
+    display: none;
+}
+
+.menu {
+    display: flex;
+    height: 200px;
+}
+
+.question {
+    flex:3;
+    flex-wrap: wrap;
+    padding: 0 15% 0 5%;
+}
+
+.choice {
+    width:70%;
+    height:auto;
+    background:blue;
+    border-radius: 50px;
+    margin-bottom: 15px;
+    color:white;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: left;
+}
+
+.choice h1 {
+    padding: 10px 15%;
+}
+
+.choice:hover {
+    background-color: rgb(113, 113, 240);
+}
+
+.quizBtns {
+    margin-left: 300px;
+}
+
+.progress {
+    flex:1
 }
