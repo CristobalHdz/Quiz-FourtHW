@@ -1,7 +1,10 @@
+// Start Menu Window
 const start = document.getElementById("buttonPlay")
 const homeOptions = document.getElementById("homeOptions")
 const quiz = document.getElementById("quizContainer")
 const quizContainer = document.getElementById("quizContainer")
+const buttonHiscores = document.getElementById("buttonHiscores")
+//Quiz Window
 const question = document.getElementById("questionText")
 const counter = document.getElementById("counter")
 const choiceA = document.getElementById("A")
@@ -11,11 +14,19 @@ const choiceD = document.getElementById("D")
 const progress = document.getElementById("progress")
 const score = document.getElementById("score")
 const wrongText = document.getElementById("wrongText")
-const hiScore = document.getElementById("hiScore")
+//Hiscores Menu
+const results = document.getElementById("resultsContainer")
+const returnMenu = document.getElementById("returnMenu")
+const nameTag = document.getElementById("nameTag")
+const hiscoreData = document.getElementById("hiscoreData")
+const inputAccept = document.getElementById("inputAccept")
+const nameTagName = document.getElementById("nameTagName")
+const nameTagScore = document.getElementById("nameTagScore")
 
 // List of questions, options and answers
 let questions = [
     {
+        id: "1",
         question: "Which of the following best describes what a function in JS is used for",
         choiceA: "A function creates new variables",
         choiceB: "A function is a reusable piece of code that can accept input and performs a specific task",
@@ -40,7 +51,7 @@ let questions = [
         correct: "A"
     },
     {
-        question: " Which of the following is a JS data type ",
+        question: "Which of the following is a JS data type ",
         choiceA: "null",
         choiceB: "undefined",
         choiceC: "object",
@@ -98,11 +109,12 @@ let questions = [
 ];
 
 
-//Questions render
-let lastQuestion = questions.length - 1;
+//Variables render
+let lastQuestion = questions.length;
 let runningQuestion = 0; //Current Quesiton
 let timeLeft = 60; //Time left on quiz
 let quizScore = 0 //Number of correct answers
+let questionCount = 1 //Question number
 
 function renderQuestion() {
     let q = questions[runningQuestion];
@@ -113,51 +125,61 @@ function renderQuestion() {
     choiceD.innerHTML = "<h1>" + q.choiceD + "</h1>"
 };
 
+//render time counter
+function renderCounter() {
+    let timerInterval = setInterval(function () {
+        timeLeft--;
+        counter.textContent = timeLeft
+        if (timeLeft <= 0) {
+            localStorage.setItem("nameTagScore", quizScore)
+            openHiscores()
+            timeLeft = 60
+            clearInterval(timerInterval)
+            // LOCAL STORAGE (SCORE)
+        }
+    }, 1000);
+};
+
 //start quiz
 start.addEventListener("click", startQuiz);
-
 function startQuiz() { //Notes: DONT USE ARROW FUNCTIONS WHEN ADDING EVENT LISTENER... FOR NOW
     homeOptions.style.display = "none";
     quiz.style.display = "block"
     renderQuestion();
-    renderProgress();
     renderCounter();
 }
 
+//Open Hiscores from main page
+buttonHiscores.addEventListener("click", openHiscores);
+function openHiscores() { //Notes: DONT USE ARROW FUNCTIONS WHEN ADDING EVENT LISTENER... FOR NOW
+    homeOptions.style.display = "none";
+    quiz.style.display = "none"
+    results.style.display = "block"
+}
 
-
-// render progress
-function renderProgress() {
-    for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
-        questionNumber.innerHTML = qIndex + " / " + questions.length
-    }
-};
-
-//render time counter
-function renderCounter() {
-
-    let timerInterval = setInterval(function () {
-        timeLeft--;
-        counter.textContent = timeLeft
-
-        if (timeLeft === 0) {
-            clearInterval(timerInterval);
-            counter.textContent = "Time is up" //NOTE: MAKE IT END THE PROGRAM
-        }
-    }, 1000);
-};
+// Go back to main page from hiscores page
+returnMenu.addEventListener("click", openMainMenu);
+function openMainMenu() { //Notes: DONT USE ARROW FUNCTIONS WHEN ADDING EVENT LISTENER... FOR NOW
+    homeOptions.style.display = "block";
+    results.style.display = "none";
+}
 
 //Check Answers
 function checkAnswer(answer) {
     if (answer == questions[runningQuestion].correct) {
         quizScore++; //Correct answer
-        if(runningQuestion <= lastQuestion) {
+        if (questionCount < lastQuestion) {
+            questionCount++;
             runningQuestion++;
             renderQuestion();
             score.innerHTML = "<h1>" + quizScore + "</h1>"
+            progress.textContent = questionCount + "/" + questions.length
+        } else {
+            openHiscores();
         }
+
     } else {
-        timeLeft = timeLeft - 5
+        timeLeft -= 5
         //Wrong answer text show
         wrongText.textContent = "Wrong answer, 5 seconds have been subtracted"
         wrongText.style.color = "White"
@@ -166,8 +188,25 @@ function checkAnswer(answer) {
         let wrongTextTimerInterval = setInterval(function () {
             wrongTextTime++;
             if (wrongTextTime === 2) {
-                wrongText.style.color="transparent"
+                wrongText.style.color = "transparent"
             }
         }, 1000)
     }
 }
+
+
+
+//Hiscores
+inputAccept.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    localStorage.setItem("nameTagName", nameTag.value)
+    nameTagName.innerHTML = "<h6>" + nameTagName + "</h6>"
+    nameTagScore.innerHTML = "<h6>" + nameTagName + "</h6>"
+
+})
+
+
+
+
+

@@ -6,6 +6,8 @@
 
 <!-- HISCORE HELP: https://stackoverflow.com/questions/31505826/javascript-personal-highscores -->
 <!--  QUESTIONS: https://letsfindcourse.com/technical-questions/javascript-mcq/javascript-fundamentals-mcq -->
+<!-- TABLE FORMAT: https://www.w3schools.com/html/tryit.asp?filename=tryhtml_table_intro -->
+
 
 <head>
     <meta charset="UTF-8" />
@@ -19,7 +21,7 @@
     <div id=container>
         <div id="homeOptions">
             <h1>Are you ready?</h1>
-            <p>You have 60 seconds to answer 10 questions. Every incorrect answer substracts 5 secodns from the clock
+            <p>You have 60 seconds to answer 10 questions. Every incorrect answer substracts 5 seconds from the clock
             </p>
             <div>
                 <button id="buttonPlay" type="button">Play</button>
@@ -28,7 +30,8 @@
                 <button id="buttonHiscores" type="button">Hiscores</button>
             </div>
             <div>
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><button type="button">Something Cool</button></a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><button type="button">Something
+                        Cool</button></a>
             </div>
         </div>
 
@@ -36,7 +39,7 @@
             <div class="menu">
                 <div class="question">
                     <div>
-                        <h1>Question <span id=questionNumber></span></h1>
+                        <h1>Question <span id=progress>1/10</span></h1>
                     </div>
                     <div id="questionText"></div>
                     <h1 id="wrongText">Placeholder for change</h1>
@@ -60,11 +63,25 @@
                 <div class="choice" id="D" onClick="checkAnswer('D')"></div>
             </div>
         </div>
-        <div class="resultsContainer">
-            
-            </div>
-        </div>
 
+        <div id="resultsContainer">
+            <input placeholder="Enter your name" id="nameTag" />
+            <div>
+                <button id="inputAccept">Add your name</button>
+            </div>
+            <table class="tableContainer">
+                <tr>
+                    <th>Name</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <th id="nameTagName"></th>
+                    <th id="nameTagScore"></th>
+                </tr>
+            </table>
+            <button id="returnMenu">Return to main menu</button>
+        </div>
+    </div>
     </div>
     <script src="Assets/JS/script.js"></script>
 </body>

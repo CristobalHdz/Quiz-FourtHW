@@ -40,10 +40,6 @@ button:hover {
     display: none;
 }
 
-#homeOptions {
-    display: none;
-}
-
 .menu {
     display: flex;
     height: 200px;
@@ -86,3 +82,28 @@ button:hover {
 #wrongText{
     color:transparent
 }
+
+/* Hiscores */
+
+#resultsContainer {
+    display: none;
+}
+
+input {
+    margin: 50px 0;
+    height: 30px;
+    font-size: 20px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin: 50px 27%;
+  }
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
