@@ -1,89 +1,40 @@
-# 04 Web APIs: Code Quiz
+# 04 Web-APIs
+## Section 01: General Information
+Third code Boot Camp assignment.
 
-## Your Task
+`JavaScript fundamentals quiz`
 
-At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
+by Cristobal Hernandez
 
-To help familiarize you with these tests and allow you to use the skills covered in this unit, this week’s homework invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. 
+Published link:
 
-This week’s coursework will equip you with all the skills you need to succeed in this assignment.
 
-## User Story
+# Section 02: General Information
+The assignment for this week is to make a JS fundamentals quiz from scratch. Which means doing all of the HTML, CSS & JS code from 0.
 
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+# Section 03: My experience
+This has been the most challenging homework yet. From adapting everything to a decent CSS, to applying JS to the objects. I felt like the dificulty skyrocketed from the last homework. Being that said, I liked the challenge.
 
-## Acceptance Criteria
+I have found that, for some reason, when applying a function to an event listener the arrow functions do not work so I had to make it the two separate rows way (One row with the listener and another with the function). 
+I also had some problems with the bugs I encoutered like the timer, current question and score displaying when ending a game and starting a new one. I tried to reset them manually (score=0) but it doesnt work so I decided just to reload the page whenever the "Return to main page" button is hit. It is not the bets practice, but it is one that works perfectly in this homework.
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
-```
+By the time of writting this I still do not understand how to store the value of the score and name on the local storage. I feel like it would have been better to go on more detail about it. The examples from the classes were too simple and this example is way harder to apply our knowledge of it into the homework. When I finish the homework completly I will update the information.
 
-## Mock-Up
+# References
+`Videos viewed for code help: `
+</br>
+https://www.youtube.com/watch?v=f4fB9Xg2JEY&ab_channel=BrianDesign
+</br>
+https://www.youtube.com/watch?v=49pYIMygIcU
 
-The following animation demonstrates the application functionality:
+`Hiscore code help: `
+</br>
+https://stackoverflow.com/questions/31505826/javascript-personal-highscores
 
-![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/04-web-apis-homework-demo.gif)
+`Technical JS questions for the quiz: `
+</br>
+ https://letsfindcourse.com/technical-questions/javascript-mcq/javascript-fundamentals-mcq
 
-## Grading Requirements
-
-This homework is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the homework instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+`Table format for Hiscores: `
+</br>
+https://www.w3schools.com/html/tryit.asp?filename=tryhtml_table_intro

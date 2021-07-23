@@ -113,7 +113,7 @@ let questions = [
 let lastQuestion = questions.length;
 let runningQuestion = 0; //Current Quesiton
 let timeLeft = 60; //Time left on quiz
-let quizScore = 0 //Number of correct answers
+let quizScore = 1 //Number of correct answers
 let questionCount = 1 //Question number
 
 function renderQuestion() {
@@ -162,6 +162,7 @@ returnMenu.addEventListener("click", openMainMenu);
 function openMainMenu() { //Notes: DONT USE ARROW FUNCTIONS WHEN ADDING EVENT LISTENER... FOR NOW
     homeOptions.style.display = "block";
     results.style.display = "none";
+    location.reload();
 }
 
 //Check Answers
