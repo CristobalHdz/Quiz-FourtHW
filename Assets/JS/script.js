@@ -2,7 +2,6 @@
 const start = document.getElementById("buttonPlay")
 const homeOptions = document.getElementById("homeOptions")
 const quiz = document.getElementById("quizContainer")
-const quizContainer = document.getElementById("quizContainer")
 const buttonHiscores = document.getElementById("buttonHiscores")
 //Quiz Window
 const question = document.getElementById("questionText")
@@ -18,7 +17,6 @@ const wrongText = document.getElementById("wrongText")
 const results = document.getElementById("resultsContainer")
 const returnMenu = document.getElementById("returnMenu")
 const nameTag = document.getElementById("nameTag")
-const hiscoreData = document.getElementById("hiscoreData")
 const inputAccept = document.getElementById("inputAccept")
 const nameTagName = document.getElementById("nameTagName")
 const nameTagScore = document.getElementById("nameTagScore")
@@ -113,8 +111,11 @@ let questions = [
 let lastQuestion = questions.length;
 let runningQuestion = 0; //Current Quesiton
 let timeLeft = 60; //Time left on quiz
-let quizScore = 1 //Number of correct answers
+let quizScore = 0 //Number of correct answers
 let questionCount = 1 //Question number
+let hiscoreOverride = 1 //If 0 then you can change the hiscore, if 1 then you can't
+
+
 
 function renderQuestion() {
     let q = questions[runningQuestion];
@@ -131,27 +132,27 @@ function renderCounter() {
         timeLeft--;
         counter.textContent = timeLeft
         if (timeLeft <= 0) {
-            localStorage.setItem("nameTagScore", quizScore)
             openHiscores()
             timeLeft = 60
             clearInterval(timerInterval)
-            // LOCAL STORAGE (SCORE)
         }
     }, 1000);
 };
 
 //start quiz
 start.addEventListener("click", startQuiz);
-function startQuiz() { //Notes: DONT USE ARROW FUNCTIONS WHEN ADDING EVENT LISTENER... FOR NOW
+function startQuiz() {
     homeOptions.style.display = "none";
     quiz.style.display = "block"
     renderQuestion();
     renderCounter();
+    hiscoreOverride--;
+    console.log(hiscoreOverride)
 }
 
 //Open Hiscores from main page
 buttonHiscores.addEventListener("click", openHiscores);
-function openHiscores() { //Notes: DONT USE ARROW FUNCTIONS WHEN ADDING EVENT LISTENER... FOR NOW
+function openHiscores() {
     homeOptions.style.display = "none";
     quiz.style.display = "none"
     results.style.display = "block"
@@ -159,9 +160,7 @@ function openHiscores() { //Notes: DONT USE ARROW FUNCTIONS WHEN ADDING EVENT LI
 
 // Go back to main page from hiscores page
 returnMenu.addEventListener("click", openMainMenu);
-function openMainMenu() { //Notes: DONT USE ARROW FUNCTIONS WHEN ADDING EVENT LISTENER... FOR NOW
-    homeOptions.style.display = "block";
-    results.style.display = "none";
+function openMainMenu() {
     location.reload();
 }
 
@@ -195,16 +194,30 @@ function checkAnswer(answer) {
     }
 }
 
-
-
 //Hiscores
+nameTagName.innerHTML = localStorage.getItem("playerName")
+nameTagScore.innerHTML = localStorage.getItem("finalScore")
+
 inputAccept.addEventListener("click", function (event) {
     event.preventDefault();
 
-    localStorage.setItem("nameTagName", nameTag.value)
-    nameTagName.innerHTML = "<h6>" + nameTagName + "</h6>"
-    nameTagScore.innerHTML = "<h6>" + nameTagName + "</h6>"
+    var playerName = nameTag.value
+    var finalScore = quizScore
 
+    if(hiscoreOverride == 0) {
+
+        localStorage.setItem("playerName", nameTag.value)
+        localStorage.setItem("finalScore", quizScore)
+    
+        nameTagName.innerHTML = localStorage.getItem("playerName")
+        nameTagScore.innerHTML = localStorage.getItem("finalScore")
+    
+        console.log(localStorage)
+
+    } else {
+        alert("You need to play the game to enter a hiscore!!")
+
+    }
 })
 
 

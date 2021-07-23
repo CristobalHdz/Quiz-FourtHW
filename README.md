@@ -20,6 +20,8 @@ I also had some problems with the bugs I encoutered like the timer, current ques
 
 By the time of writting this I still do not understand how to store the value of the score and name on the local storage. I feel like it would have been better to go on more detail about it. The examples from the classes were too simple and this example is way harder to apply our knowledge of it into the homework. When I finish the homework completly I will update the information.
 
+UPDATE: After a lot of research I have managed to apply a hiscore system! You will have to override the last hiscore when you finish a game, but you cant enter a score without playing the game.
+
 # References
 `Videos viewed for code help: `
 </br>
