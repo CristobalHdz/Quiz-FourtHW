@@ -6,7 +6,7 @@ Third code Boot Camp assignment.
 
 by Cristobal Hernandez
 
-Published link:
+Published link: https://cristobalhdz.github.io/Quiz-FourtHW/
 
 
 # Section 02: General Information
