@@ -41,11 +41,11 @@ let questions = [
         correct: "C"
     },
     {
-        question: "Using 'var' is the same as using 'let'?",
-        choiceA: "Yes",
-        choiceB: "No",
-        choiceC: "Depends on the context",
-        choiceD: "You said what now?",
+        question: "Which of the following is NOT a looping structure?",
+        choiceA: "If",
+        choiceB: "For",
+        choiceC: "While",
+        choiceD: "For-While",
         correct: "A"
     },
     {
@@ -147,7 +147,6 @@ function startQuiz() {
     renderQuestion();
     renderCounter();
     hiscoreOverride--;
-    console.log(hiscoreOverride)
 }
 
 //Open Hiscores from main page
@@ -181,7 +180,7 @@ function checkAnswer(answer) {
     } else {
         timeLeft -= 5
         //Wrong answer text show
-        wrongText.textContent = "Wrong answer, 5 seconds have been subtracted"
+        wrongText.innerHTML ="Wrong answer, 5 seconds have been subtracted"
         wrongText.style.color = "White"
         let wrongTextTime = 0
 
@@ -211,16 +210,9 @@ inputAccept.addEventListener("click", function (event) {
     
         nameTagName.innerHTML = localStorage.getItem("playerName")
         nameTagScore.innerHTML = localStorage.getItem("finalScore")
-    
-        console.log(localStorage)
 
     } else {
         alert("You need to play the game to enter a hiscore!!")
 
     }
 })
-
-
-
-
-
